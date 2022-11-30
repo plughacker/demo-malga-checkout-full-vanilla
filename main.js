@@ -70,11 +70,17 @@
     ],
   };
 
-  plugCheckoutFull.addEventListener("paymentSuccess", ({ detail: { data } }) => {
-    console.log(data);
-  });
+  plugCheckoutFull.addEventListener(
+    "transactionSuccess",
+    ({ detail: { data } }) => {
+      console.log(data);
+    }
+  );
 
-  plugCheckoutFull.addEventListener("paymentError", ({ detail: { error } }) => {
-    console.log(error);
-  });
+  plugCheckoutFull.addEventListener(
+    "transactionFailed",
+    ({ detail: { error } }) => {
+      console.log(error);
+    }
+  );
 })();
