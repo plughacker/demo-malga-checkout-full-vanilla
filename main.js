@@ -1,7 +1,7 @@
 (() => {
-  const plugCheckoutFull = document.querySelector("plug-checkout-full");
+  const malgaCheckoutFull = document.querySelector("malga-checkout-full");
 
-  plugCheckoutFull.paymentMethods = {
+  malgaCheckoutFull.paymentMethods = {
     pix: {
       expiresIn: 3600,
     },
@@ -27,28 +27,26 @@
     },
   };
 
-  plugCheckoutFull.transactionConfig = {
-    statementDescriptor: "#1 Demonstration Plug Checkout",
+  malgaCheckoutFull.transactionConfig = {
+    statementDescriptor: "#1 Demonstration Malga Checkout",
     amount: 100,
     description: "",
     orderId: "",
-    customerId: "<CUSTOMER_ID>",
     currency: "BRL",
     capture: false,
   };
 
-  plugCheckoutFull.dialogConfig = {
+  malgaCheckoutFull.dialogConfig = {
     show: true,
     actionButtonLabel: "Continuar",
     errorActionButtonLabel: "Tentar novamente",
     successActionButtonLabel: "Continuar",
-    successRedirectUrl: "https://www.plugpagamentos.com/",
+    successRedirectUrl: "https://www.malga.io/",
   };
 
-  plugCheckoutFull.pageConfig = {
-    brandUrl: "https://exampleurl/images/logo.png",
-    footerDescription: "Todos os direitos reservados © 2022 Plug Pagamentos.",
-    backRoute: "https://www.plugpagamentos.com/",
+  malgaCheckoutFull.pageConfig = {
+    footerDescription: "Todos os direitos reservados © 2023 Malga.",
+    backRoute: "https://www.malga.io/",
     delivery: 0,
     products: [
       {
@@ -70,14 +68,14 @@
     ],
   };
 
-  plugCheckoutFull.addEventListener(
+  malgaCheckoutFull.addEventListener(
     "transactionSuccess",
     ({ detail: { data } }) => {
       console.log(data);
     }
   );
 
-  plugCheckoutFull.addEventListener(
+  malgaCheckoutFull.addEventListener(
     "transactionFailed",
     ({ detail: { error } }) => {
       console.log(error);
